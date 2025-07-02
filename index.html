@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .main-section {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Aligns content to the left */
+            background: #000; /* Optional: background color behind video */
+            /* padding-left: 12vw;  Removed left padding */
+        }
+        .bg-video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .genshin-welcome {
+            position: absolute;
+            top: 42vh; /* Move text further down */
+            left: 0;
+            width: 100vw;
+            text-align: center;
+            font-family: 'Cinzel', serif, 'Times New Roman', Times;
+            font-size: 8vw; /* Slightly smaller to fit */
+            color: #ffe066; /* Gold */
+            text-shadow: 0 2px 16px #bfa046, 0 0 40px #fffbe6;
+            letter-spacing: 0em; /* No extra spacing */
+            z-index: 2;
+            pointer-events: none;
+            white-space: nowrap; /* Keep text in one line */
+            overflow: hidden; /* Prevents overflow */
+            /* Softer fade on the left side so "Wel" is visible */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 100%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 100%);
+        }
+        .fade-part {
+            color: transparent;
+            text-shadow: none;
+            -webkit-text-stroke: 2px #ffe066; /* Gold outline */
+            text-stroke: 2px #ffe066;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-section">
+        <h1 class="genshin-welcome">
+          Welco<span class="fade-part">me</span>, <span class="fade-part">Tra</span>veller
+        </h1>
+        <video class="bg-video" autoplay muted loop playsinline>
+            <source src="https://giffiles.alphacoders.com/223/223126.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <footer>
+        © 2025 Your Footer Content Here
+    </footer>
+</body>
+
+</html>
