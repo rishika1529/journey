@@ -10,6 +10,7 @@
             height: 100%;
             margin: 0;
             padding: 0;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23404' stroke-width='1.5'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23505'%3E%3Ccircle cx='769' cy='229' r='4'/%3E%3Ccircle cx='539' cy='269' r='4'/%3E%3Ccircle cx='603' cy='493' r='4'/%3E%3Ccircle cx='731' cy='737' r='4'/%3E%3Ccircle cx='520' cy='660' r='4'/%3E%3Ccircle cx='309' cy='538' r='4'/%3E%3Ccircle cx='295' cy='764' r='4'/%3E%3Ccircle cx='40' cy='599' r='4'/%3E%3Ccircle cx='102' cy='382' r='4'/%3E%3Ccircle cx='127' cy='80' r='4'/%3E%3Ccircle cx='370' cy='105' r='4'/%3E%3Ccircle cx='578' cy='42' r='4'/%3E%3Ccircle cx='237' cy='261' r='4'/%3E%3Ccircle cx='390' cy='382' r='4'/%3E%3C/g%3E%3C/svg%3E") 16 16, auto;
         }
         body {
             min-height: 100vh;
@@ -56,6 +57,11 @@
             /* Softer fade on the left side so "Wel" is visible */
             -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 100%);
             mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 100%);
+            opacity: 0;
+            transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .genshin-welcome.visible {
+            opacity: 1;
         }
         .fade-part {
             color: transparent;
@@ -63,18 +69,103 @@
             -webkit-text-stroke: 2px #ffe066; /* Gold outline */
             text-stroke: 2px #ffe066;
         }
+        .click-continue {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            /* Adjust bottom to be ~10px above the bottom of the video (girl section) */
+            bottom: 12vh;
+            font-family: 'Cinzel', serif, 'Times New Roman', Times;
+            font-size: 1.2vw;
+            color: #fff;
+            letter-spacing: 0.08em;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 3;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+        .click-continue.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .fancy-underline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.3em;
+        }
+        .fancy-underline .star {
+            font-size: 1.1em;
+            color: #ffe066;
+            margin: 0 0.3em;
+            filter: drop-shadow(0 0 4px #fffbe6);
+        }
+        .fancy-underline .line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ffe066 40%, #ffe066 60%, transparent);
+            margin: 0 0.2em;
+            border-radius: 2px;
+            box-shadow: 0 0 6px #fffbe6;
+        }
+        @media (max-width: 600px) {
+            .click-continue {
+                font-size: 3vw;
+                bottom: 8vh;
+            }
+        }
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+        /* Add to your <style> in index.html */
+        .bg-video.zoom-out {
+            transition: transform 1.2s cubic-bezier(0.4,0,0.2,1), filter 1.2s cubic-bezier(0.4,0,0.2,1);
+            transform: scale(1.18);
+            filter: blur(2px) brightness(0.7);
+        }
+        .genshin-welcome,
+        #clickContinue {
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .genshin-welcome.fade,
+        #clickContinue.fade {
+            opacity: 0;
+        }
+        #loader {
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: #000;
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+            opacity: 1;
+            pointer-events: all;
+        }
+        #loader.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
+    <div id="loader">Loading...</div>
     <div class="main-section">
         <h1 class="genshin-welcome">
           Welco<span class="fade-part">me</span>, <span class="fade-part">Tra</span>veller
         </h1>
-        <video class="bg-video" autoplay muted loop playsinline>
+        <div class="click-continue" id="clickContinue">
+            Click to continue
+            <div class="fancy-underline">
+                <span class="star">✦</span>
+                <span class="line"></span>
+                <span class="star">✧</span>
+                <span class="line"></span>
+                <span class="star">✦</span>
+            </div>
+        </div>
+        <video class="bg-video" id="bgVideo" autoplay muted loop playsinline>
             <source src="https://giffiles.alphacoders.com/223/223126.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -82,6 +173,38 @@
     <footer>
         © 2025 Your Footer Content Here
     </footer>
-</body>
+    <script>
+const video = document.getElementById('bgVideo');
+const welcome = document.querySelector('.genshin-welcome');
+const clickContinue = document.getElementById('clickContinue');
+const loader = document.getElementById('loader');
 
+function showWelcome() {
+    welcome.classList.add('visible');
+    setTimeout(() => {
+        clickContinue.classList.add('visible');
+        // Hide loader after welcome and continue are visible
+        setTimeout(() => {
+            loader.classList.add('hide');
+        }, 400); // Slight delay for smoothness
+    }, 1800);
+}
+
+if (video.readyState >= 3) {
+    showWelcome();
+} else {
+    video.addEventListener('canplaythrough', showWelcome, { once: true });
+}
+
+// Transition to second.html with zoom effect
+clickContinue.addEventListener('click', function () {
+    video.classList.add('zoom-out');
+    welcome.classList.add('fade');
+    clickContinue.classList.add('fade');
+    setTimeout(() => {
+        window.location.href = 'second.html';
+    }, 1300); // Slightly longer for smoothness
+});
+    </script>
+</body>
 </html>
