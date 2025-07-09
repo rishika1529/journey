@@ -23,7 +23,7 @@
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             z-index: -1;
-            background: url('https://images8.alphacoders.com/127/1275601.jpg') no-repeat center center fixed;
+            background: url('https://i.pinimg.com/736x/08/27/8c/08278c2efa29cf1f19f9eb5bfbf7942d.jpg') no-repeat center center fixed;
             background-size: cover;
             animation: bgMove 18s ease-in-out infinite alternate;
             filter: blur(8px);
@@ -54,15 +54,16 @@
 
         .about-left {
             position: absolute;
-            top: 15vh;
-            left: 4vw;
+            top: 25vh; /* changed from 15vh to 25vh */
+            left: 50%;
+            transform: translateX(-50%);
             max-width: 36vw;
-            /* Remove background, border-radius, box-shadow, and padding */
             background: none;
             border-radius: 0;
             box-shadow: none;
             padding: 0;
             z-index: 2;
+            text-align: center;
         }
 
         .about-text.about-white {
@@ -72,19 +73,23 @@
             line-height: 1.7;
             letter-spacing: 0.01em;
             text-shadow: 0 2px 12px #222, 0 0 24px #000a;
-            font-weight: 700; /* Bold for Genshin look */
+            font-weight: 700;
+            text-align: center;
         }
 
         @media (max-width: 900px) {
             .about-left {
                 max-width: 90vw;
-                left: 5vw;
-                right: 5vw;
-                top: 10vh;
+                left: 50%;
+                right: auto;
+                top: 18vh; /* changed from 10vh to 18vh */
                 padding: 0;
+                transform: translateX(-50%);
+                text-align: center;
             }
             .about-text.about-white {
                 font-size: 3vw;
+                text-align: center;
             }
         }
     </style>
