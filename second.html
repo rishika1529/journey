@@ -77,6 +77,25 @@
             text-align: center;
         }
 
+        .next-page-link {
+            display: inline-block;
+            margin-top: 5vh;
+            margin-left: 8vw;
+            font-family: 'Cinzel', serif, 'Times New Roman', Times;
+            font-size: 1.4vw;
+            color: #ffe066;
+            text-decoration: none;
+            border-bottom: 2px solid #ffe066;
+            transition: color 0.2s, border-bottom 0.2s;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .next-page-link:hover {
+            color: #fffbe6;
+            border-bottom: 2px solid #fffbe6;
+        }
+
         @media (max-width: 900px) {
             .about-left {
                 max-width: 90vw;
@@ -91,6 +110,10 @@
                 font-size: 3vw;
                 text-align: center;
             }
+            .next-page-link {
+                font-size: 3vw;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
@@ -101,6 +124,7 @@
             Hi! I'm a 3rd-year Computer Science student and a full-stack development enthusiast with a growing interest in cybersecurity. I have a strong foundation in Data Structures and Algorithms, having solved 200+ problems on LeetCode with a weekly contest rating of 1580+.<br><br>
             I’m proficient in C, C++, Java, Python, and work comfortably with databases and data analytics tools. Currently, I’m expanding my skills in backend technologies and exploring real-world applications of cyber security. I'm always excited to take on new challenges and build impactful tech solutions.
         </span>
+        <a href="third.html" class="next-page-link">Go to Projects & Subjects →</a>
     </div>
     <script>
         window.addEventListener('DOMContentLoaded', function() {
