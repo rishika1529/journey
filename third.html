@@ -141,6 +141,22 @@
       height: 2px;
     }
 
+    /* Back link */
+    .back-link {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      color: #ffe066;
+      font-size: 1.2rem;
+      text-decoration: none;
+      z-index: 3;
+      transition: color 0.3s;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .subjects-projects {
@@ -195,6 +211,9 @@
       <span class="subject-tag">Others</span>
     </div>
   </div>
+
+  <!-- Back link -->
+  <a href="third.html" class="back-link">← Back to Projects & Subjects</a>
 
   <script>
     window.addEventListener("DOMContentLoaded", function () {

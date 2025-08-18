@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullstack Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Use the same CSS as above --- */
+        html, body { margin: 0; padding: 0; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23404' stroke-width='1.5'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23505'%3E%3Ccircle cx='769' cy='229' r='4'/%3E%3Ccircle cx='539' cy='269' r='4'/%3E%3Ccircle cx='603' cy='493' r='4'/%3E%3Ccircle cx='731' cy='737' r='4'/%3E%3Ccircle cx='520' cy='660' r='4'/%3E%3Ccircle cx='309' cy='538' r='4'/%3E%3Ccircle cx='295' cy='764' r='4'/%3E%3Ccircle cx='40' cy='599' r='4'/%3E%3Ccircle cx='102' cy='382' r='4'/%3E%3Ccircle cx='127' cy='80' r='4'/%3E%3Ccircle cx='370' cy='105' r='4'/%3E%3Ccircle cx='578' cy='42' r='4'/%3E%3Ccircle cx='237' cy='261' r='4'/%3E%3Ccircle cx='390' cy='382' r='4'/%3E%3C/g%3E%3C/svg%3E") 16 16, auto; }
+        body { min-height: 100vh; position: relative; }
+        body::before { content: ""; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background: url('https://cdn.pixabay.com/animation/2024/07/23/19/52/19-52-56-478_512.gif') no-repeat center center fixed; background-size: cover; animation: bgMove 18s ease-in-out infinite alternate; filter: blur(8px); transition: filter 1s cubic-bezier(0.4,0,0.2,1);}
+        body.loaded::before { filter: blur(0);}
+        @keyframes bgMove { 0% { background-position: 50% 40%; } 50% { background-position: 50% 60%; } 100% { background-position: 50% 40%; } }
+        #loader { position: fixed; z-index: 9999; inset: 0; background: #000; opacity: 1; transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1); pointer-events: all;}
+        #loader.hide { opacity: 0; pointer-events: none;}
+        .projects-container { position: relative; width: 70vw; margin: 10vh auto 5vh auto; background: none; padding: 2vw; border-radius: 8px; box-shadow: none; text-align: center; z-index: 2;}
+        .project-title { font-family: 'Cinzel', serif, 'Times New Roman', Times; color: #ffe066; font-size: 2.5vw; font-weight: 700; margin-bottom: 2vw; text-shadow: 0 2px 12px #bfa046, 0 0 24px #fffbe6;}
+        .back-link { display: inline-block; margin-top: 3vw; font-family: 'Cinzel', serif, 'Times New Roman', Times; font-size: 1.4vw; color: #ffe066; text-decoration: none; border-bottom: 2px solid #ffe066; transition: color 0.2s, border-bottom 0.2s; font-weight: 700; letter-spacing: 0.03em;}
+        .back-link:hover { color: #fffbe6; border-bottom: 2px solid #fffbe6;}
+        @media (max-width: 900px) { .projects-container { width: 90vw; padding: 5vw; margin-top: 8vh;} .project-title { font-size: 6vw; margin-bottom: 5vw;} .back-link { font-size: 4vw; margin-top: 5vw;}}
+    </style>
+</head>
+<body>
+    <div id="loader"></div>
+    <div class="projects-container">
+        <div class="project-title">My Fullstack Projects</div>
+        <!-- Add your Fullstack projects here -->
+        <a href="third.html" class="back-link">← Back to Projects & Subjects</a>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+                document.getElementById('loader').classList.add('hide');
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
